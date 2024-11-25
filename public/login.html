@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARS - Login</title>
+    <link rel="stylesheet" href="login_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="wars_logo.png" alt="wars logo">
+        </div>
+        <br>
+        <br>
+    </header>
+
+    <div class="login-form">
+        <div class="head">
+            <h1><i><img src="youtube-logo.svg" alt=""></i>User System Login</h1>
+        </div>
+        <form>
+            <div>
+                <label for="email" class="label">Email</label>
+                <br>
+                <input type="text" id="email" name="email" placeholder="Enter your registered email address" required>
+            </div>
+            <br>
+            <label for="password" class="label">Password</label>
+            <br>
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <i class="fa fa-eye" id="togglePassword"></i>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="form-group">
+                <div class="cancel">
+                    <a href="index.html">Cancel</a>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="login">
+                    <button type="submit" class="login">Login</button>
+                </div>
+            </div>
+            <div>
+                <p>Don't have an account? <a href="register.html">Register</a>
+                </p>
+                <p>Forgot Password? <a href="password_reset.html">Reset Password</a></p>
+            </div>
+        </form>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
