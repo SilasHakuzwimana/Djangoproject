@@ -1,11 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEDO-SEC System Dashboard</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..800&display=swap" rel="stylesheet">
+  <style>
+    /* General Reset */
+    * {
+      font-family: 'EB Garamond', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Header Styles */
+    .header {
+      background-color: #fff;
+      color: #18BBB1;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header h2 {
+      font-size: 1.2rem;
+    }
+
+    /* Layout Styles */
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 20%;
+      background-color: #fff;
+      padding: 1rem;
+      border-right: 1px solid #ddd;
+      height: 100%;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+      cursor: pointer;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .sidebar li:hover {
+      background-color: #fff;
+      border-radius: 5px;
+      padding-left: 0.5rem;
+    }
+
+    .sidebar .icon {
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      width: 20px;
+    }
+
+    .sidebar .icon img {
+      width: 10px; /* Adjusted size */
+      height:16px;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+      width: 80%;
+      flex: 1;
+      padding: 1rem;
+      transition: margin-left 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .nav-content {
+      display: none;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    .nav-content.active {
+      display: block;
+    }
+
+    .nav-content h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .nav-content p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
-    
+  <header class="header">
+    <div class="logo">
+      <img src="images/wars_logo.png" alt="Wars logo" width="200px" height="200px">
+    </div>
+    <h2><img src="images/sedo-sec-images/sedo-sec_dashboard-icon.svg" alt="dashboard" width="20px" height="20px"> SEDO-SEC System Dashboard</h2>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <ul>
+        <li data-title="Profile" data-description="Manage your profile settings and preferences."><img class="icon" src="images/sedo-sec-images/sedo-sec_profile-icon.svg" alt=""> <span>Profile</span></li>
+        <li data-title="TW Providers" data-description="Access and manage TW Provider information."><img class="icon" src="images/sedo-sec-images/sedo-sec_taps-icon.svg" alt=""> <span>TW Providers</span></li>
+        <li data-title="Reports" data-description="View and generate system reports."><img class="icon" src="images/sedo-sec-images/sedo-sec_report-icon.svg" alt=""> <span>Reports</span></li>
+        <li data-title="Cases" data-description="Track and manage ongoing cases."><img class="icon" src="images/sedo-sec-images/sedo-sec_cases-icon.svg" alt=""> <span>Cases</span></li>
+        <li data-title="Help Desk" data-description="Access the help desk for support."><img class="icon" src="images/sedo-sec-images/sedo-sec_helpdesk-icon.svg" alt=""> <span>Help Desk</span></li>
+        <li data-title="Notifications" data-description="View recent notifications and alerts."><img class="icon" src="images/sedo-sec-images/sedo-sec_notifications-icon.svg" alt=""> <span>Notifications</span></li>
+        <li data-title="Logout" data-description="Sign out of the dashboard securely."><img class="icon" src="images/sedo-sec-images/sedo-sec_logout-icon.svg" alt=""> <span>Logout</span></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div id="default-content" class="nav-content active">
+        <h3>Welcome!</h3>
+        <p>Select a navigation option from the sidebar to see more details.</p>
+      </div>
+
+      <!-- Content Sections for Each Nav -->
+      <div id="profile-content" class="nav-content">
+        <h3>Profile</h3>
+        <p>Manage your profile settings and preferences.</p>
+      </div>
+      <div id="tw-providers-content" class="nav-content">
+        <h3>TW Providers</h3>
+        <p>Access and manage TW Provider information.</p>
+      </div>
+      <div id="reports-content" class="nav-content">
+        <h3>Reports</h3>
+        <p>View and generate system reports.</p>
+      </div>
+      <div id="cases-content" class="nav-content">
+        <h3>Cases</h3>
+        <p>Track and manage ongoing cases.</p>
+      </div>
+      <div id="helpdesk-content" class="nav-content">
+        <h3>Help Desk</h3>
+        <p>Access the help desk for support.</p>
+      </div>
+      <div id="notifications-content" class="nav-content">
+        <h3>Notifications</h3>
+        <p>View recent notifications and alerts.</p>
+      </div>
+      <div id="logout-content" class="nav-content">
+        <h3>Logout</h3>
+        <p>Sign out of the dashboard securely.</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const navItems = document.querySelectorAll('.sidebar li');
+    const contentSections = document.querySelectorAll('.nav-content');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Hide all sections
+        contentSections.forEach(section => section.classList.remove('active'));
+
+        // Get the corresponding section ID and show it
+        const title = item.dataset.title.toLowerCase().replace(' ', '-');
+        const targetContent = document.getElementById(`${title}-content`);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
