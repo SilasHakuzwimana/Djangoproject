@@ -1,345 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WARS - SEDO-Sector System Dashboard</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARS - SEDO-Sector System Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..800&display=swap" rel="stylesheet">
-  <style>
-    /* General Reset */
-    * {
-      font-family: 'EB Garamond', sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <style>
+        /* General Reset */
+        * {
+            font-family: 'EB Garamond', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Header Styles */
-    .header {
-      background-color: #fff;
-      color: #18BBB1;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #e6e6e6;
+        }
+        
+        .logo {
+            max-width: 100px;
+            display: block;
+            margin: 0 auto 10px;
+        }
 
-    .header h2 {
-      font-size: 1.2rem;
-    }
+        .title {
+            font-size: 1.8rem;
+            background-color: #d9d9d9;
+            color: #18BBB1;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .title img {
+            width: 100px;
+            height: 100px;
+        }
 
-    /* Layout Styles */
-    .container {
-      display: flex;
-    }
+        /* Dashboard */
+        .dashboard {
+            display: flex;
+        }
 
-    .sidebar {
-      width: 20%;
-      background-color: #fff;
-      padding: 1rem;
-      border-right: 1px solid #ddd;
-      height: 100%;
-    }
+        /* Menu */
+        .menu {
+            flex: 1;
+            background: #f4f4f9;
+            border-right: 2px solid #e6e6e6;
+            padding: 20px;
+        }
+        
+        .menu ul {
+            list-style: none;
+        }
+        
+        .menu li {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #0056b3;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
 
-    .sidebar ul {
-      list-style: none;
-    }
+        .menu .icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #007bff;
+        }
+        
+        /* Details Section */
+        .details {
+            flex: 3;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+        }
 
-    .sidebar li {
-      display: flex;
-      align-items: center;
-      padding: 0.5rem 0;
-      cursor: pointer;
-      font-size: 1rem;
-      color: #333;
-      transition: background-color 0.3s, color 0.3s;
-    }
+        .detail-card {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1 1 calc(50% - 20px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
 
-    .sidebar li.active {
-      background-color: #18BBB1;
-      color: #fff;
-      border-radius: 5px;
-    }
+        .detail-card h2 {
+            font-size: 1.2rem;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        
+        .detail-card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
 
-    .sidebar li:hover {
-      background-color: #e6f7f6;
-      border-radius: 5px;
-      padding-left: 0.5rem;
-    }
-
-    .sidebar .icon {
-      margin-right: 1rem;
-      font-size: 1.2rem;
-      width: 20px;
-    }
-
-    .sidebar .icon img {
-      width: 16px;
-      height: 16px;
-    }
-
-    /* Main Content Styles */
-    .main-content {
-      width: 80%;
-      flex: 1;
-      padding: 1rem;
-      transition: margin-left 0.3s ease;
-      overflow-y: auto;
-    }
-
-    .nav-content {
-      display: none;
-      padding: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      background-color: #fff;
-    }
-
-    .nav-content.active {
-      display: block;
-    }
-
-    .nav-content h3 {
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
-    }
-
-    .nav-content p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    /* Call-to-Action Row */
-.cta-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: 1.5rem;
-  }
-  
-  /* Call-to-Action Box */
-  .cta-box {
-    flex: 1;
-    background-color: #e6f7f6;
-    border: 1px solid #18BBB1;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .cta-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .cta-box h4 {
-    font-size: 1.2rem;
-    color: #18BBB1;
-    margin-bottom: 0.5rem;
-  }
-  
-  .cta-box p {
-    font-size: 0.9rem;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-  
-  .cta-box button {
-    background-color: #18BBB1;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cta-box button:hover {
-    background-color: #14a099;
-  }
-  </style>
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard {
+            flex-direction: column;
+            }
+        
+            .menu {
+            border-right: none;
+            border-bottom: 2px solid #e6e6e6;
+            text-align: center;
+            }
+        
+            .details {
+            gap: 10px;
+            }
+        
+            .detail-card {
+            flex: 1 1 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <div class="logo">
-      <img src="images/wars_logo.png" alt="Wars logo" width="200px" height="200px">
-    </div>
-    <h2><img src="images/sedo-sec-images/sedo-sec_dashboard-icon.svg" alt="dashboard" width="20px" height="20px">SEDO-Sector System Dashboard</h2>
-  </header>
-
-  <div class="container">
-    <aside class="sidebar">
-      <ul>
-        <li role="button" tabindex="0" data-title="Profile" data-description="Manage your profile settings and preferences."><img class="icon" src="images/sedo-sec-images/sedo-sec_profile-icon.svg" alt=""> <span>Profile</span></li>
-        <li role="button" tabindex="0" data-title="TW Providers" data-description="Access and manage TW Provider information."><img class="icon" src="images/sedo-sec-images/sedo-sec_taps-icon.svg" alt=""> <span>TW Providers</span></li>
-        <li role="button" tabindex="0" data-title="Reports" data-description="View and generate system reports."><img class="icon" src="images/sedo-sec-images/sedo-sec_report-icon.svg" alt=""> <span>Reports</span></li>
-        <li role="button" tabindex="0" data-title="Cases" data-description="Track and manage ongoing cases."><img class="icon" src="images/sedo-sec-images/sedo-sec_cases-icon.svg" alt=""> <span>Cases</span></li>
-        <li role="button" tabindex="0" data-title="Help Desk" data-description="Access the help desk for support."><img class="icon" src="images/sedo-sec-images/sedo-sec_helpdesk-icon.svg" alt=""> <span>Help Desk</span></li>
-        <li role="button" tabindex="0" data-title="Notifications" data-description="View recent notifications and alerts."><img class="icon" src="images/sedo-sec-images/sedo-sec_notifications-icon.svg" alt=""> <span>Notifications</span></li>
-        <li role="button" tabindex="0" data-title="Logout" data-description="Sign out of the dashboard securely."><img class="icon" src="images/sedo-sec-images/sedo-sec_logout-icon.svg" alt=""> <span>Logout</span></li>
-      </ul>
-    </aside>
-    <main class="main-content">
-        <!-- Initial Call-to-Action Content -->
-        <div id="default-content-1" class="nav-content active">
-          <h3>Welcome to SEDO-SEC Dashboard!</h3>
-          <p>Select an action below to get started:</p>
-      
-          <div class="cta-row">
-            <!-- Profile Section -->
-            <div class="cta-box" id="profile-box">
-              <h4>Manage Profile</h4>
-              <p>Update your details and preferences.</p>
-              <button onclick="redirectToSection('profile-content')">Go to Profile</button>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+          <img src="images/wars_logo.png" alt="Water System Logo" class="logo">
+          <h1 class="title"><i><img src="images/sedo-sec-images/sedo-sec_dashboard-icon.svg" alt="Dashboard icon"></i>SEDO-SECTOR System Dashboard</h1>
+        </header>
+    
+        <!-- Dashboard Content -->
+        <main class="dashboard">
+          <!-- Menu Items -->
+          <aside class="menu">
+            <ul>
+              <li>
+                <span class="icon">&#128100;</span> <!-- Profile Icon -->
+                Profile
+              </li>
+              <li>
+                <span class="icon">&#128221;</span> <!-- Providers Icon -->
+                TW Providers
+              </li>
+              <li>
+                <span class="icon">&#128200;</span> <!-- Reports Icon -->
+                Reports
+              </li>
+              <li>
+                <span class="icon">&#128337;</span> <!-- Cases Icon -->
+                Cases
+              </li>
+              <li>
+                <span class="icon">&#128222;</span> <!-- Help Desk Icon -->
+                Help Desk
+              </li>
+              <li>
+                <span class="icon">&#128276;</span> <!-- Notifications Icon -->
+                Notifications
+              </li>
+              <li>
+                <span class="icon">&#128682;</span> <!-- Logout Icon -->
+                Logout
+              </li>
+            </ul>
+          </aside>
+    
+          <!-- Details Section -->
+          <section class="details">
+            <h3>Welcome to SEDO-SEC Dashboard!</h3>
+            <br>
+            <br>
+            <p>Select an action below to get started:</p>
+            <div class="detail-card">
+              <h2>Profile</h2>
+              <p>View your profile settings.</p>
             </div>
-      
-            <!-- Tap Water Providers Section -->
-            <div class="cta-box" id="tw-box">
-              <h4>Tap Water Providers</h4>
-              <p>Manage tap water providers within your sector.</p>
-              <button onclick="redirectToSection('tw-content')">Go to TW Providers</button>
+            <div class="detail-card">
+              <h2>Tap Water Provider</h2>
+              <p>Manage tap water providers within your cell.</p>
             </div>
-      
-            <!-- Reports Section -->
-            <div class="cta-box" id="reports-box">
-              <h4>View Reports</h4>
-              <p>Generate and view comprehensive reports.</p>
-              <button onclick="redirectToSection('reports-content')">View Reports</button>
+            <div class="detail-card">
+              <h2>Reports</h2>
+              <p>Access weekly reports.</p>
             </div>
-          </div>
-      
-          <!-- Additional Call-to-Actions -->
-          <div id="default-content-2" class="nav-content">
-            <div class="cta-row">
-              <!-- Cases Section -->
-              <div class="cta-box" id="cases-box">
-                <h4>Cases</h4>
-                <p>Manage water access cases within your sector.</p>
-                <button onclick="redirectToSection('cases-content')">View Cases</button>
-              </div>
-      
-              <!-- Help Desk Section -->
-              <div class="cta-box" id="helpdesk-box">
-                <h4>Help Desk</h4>
-                <p>Get assistance and resolve issues.</p>
-                <button onclick="redirectToSection('helpdesk-content')">Visit Help Desk</button>
-              </div>
-      
-              <!-- Notifications Section -->
-              <div class="cta-box" id="notifications-box">
-                <h4>Notifications</h4>
+            <div class="detail-card">
+              <h2>Cases</h2>
+              <p>Manage water access cases within your cell.</p>
+            </div>
+            <div class="detail-card">
+              <h2>Help Desk</h2>
+              <p>Contact support from your dashboard.</p>
+            </div>
+            <div class="detail-card">
+                <h2>Notifications</h2>
                 <p>View notifications.</p>
-                <button onclick="redirectToSection('notifications-content')">View Notifications</button>
-              </div>
-      
-              <!-- Logout Section -->
-              <div class="cta-box" id="logout-box">
-                <h4>Logout</h4>
-                <p>Securely exit from the system.</p>
-                <button onclick="redirectToSection('logout-content')">Logout</button>
-              </div>
             </div>
-          </div>
-        </div>
-      
-        <!-- Content Sections for Each Nav -->
-        <div id="profile-content" class="nav-content">
-          <h3>Profile</h3>
-          <p>Manage your profile settings and preferences.</p>
-        </div>
-      
-        <div id="tw-content" class="nav-content">
-          <h3>Tap Water Providers</h3>
-          <p>Access and manage tap water provider information.</p>
-        </div>
-      
-        <div id="reports-content" class="nav-content">
-          <h3>Reports</h3>
-          <p>View and generate system reports.</p>
-        </div>
-      
-        <div id="cases-content" class="nav-content">
-          <h3>Cases</h3>
-          <p>Track and manage ongoing cases.</p>
-        </div>
-      
-        <div id="helpdesk-content" class="nav-content">
-          <h3>Help Desk</h3>
-          <p>Access the help desk for support.</p>
-        </div>
-      
-        <div id="notifications-content" class="nav-content">
-          <h3>Notifications</h3>
-          <p>View recent notifications and alerts.</p>
-        </div>
-      
-        <div id="logout-content" class="nav-content">
-          <h3>Logout</h3>
-          <p>Sign out of the dashboard securely.</p>
-        </div>
-      </main>
-  </div>
-  <script>
-    const navItems = document.querySelectorAll('.sidebar li');
-    const contentSections = document.querySelectorAll('.nav-content');
-
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        // Remove active class from all sections and nav items
-        contentSections.forEach(section => section.classList.remove('active'));
-        navItems.forEach(nav => nav.classList.remove('active'));
-
-        // Add active class to the clicked item
-        item.classList.add('active');
-
-        // Show the corresponding content section
-        const title = item.dataset.title.toLowerCase().replace(' ', '-');
-        const targetContent = document.getElementById(`${title}-content`);
-        if (targetContent) {
-          targetContent.classList.add('active');
-        } else {
-          console.error(`No section found for ${title}`);
-        }
-      });
-
-      // Support keyboard interaction (Enter key)
-      item.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          item.click();
-        }
-      });
-    });
-  </script>
-  <script>
-    // JavaScript Function for Redirection
-function redirectToSection(sectionId) {
-    // Hide all content sections
-    const contentSections = document.querySelectorAll('.nav-content');
-    contentSections.forEach(section => section.classList.remove('active'));
-  
-    // Remove active state from all nav items
-    const navItems = document.querySelectorAll('.sidebar li');
-    navItems.forEach(nav => nav.classList.remove('active'));
-  
-    // Activate the clicked section
-    const targetContent = document.getElementById(sectionId);
-    if (targetContent) {
-      targetContent.classList.add('active');
-  
-      // Highlight the corresponding nav item
-      const correspondingNavItem = Array.from(navItems).find(nav => {
-        return nav.dataset.title.toLowerCase().replace(' ', '-') === sectionId.split('-')[0];
-      });
-      if (correspondingNavItem) {
-        correspondingNavItem.classList.add('active');
-      }
-    } else {
-      console.error(`No section found for ${sectionId}`);
-    }
-  }
-  </script>
+            <div class="detail-card">
+              <h2>Logout</h2>
+              <p>Securely exit from system.</p>
+            </div>
+          </section>
+        </main>
+      </div>
 </body>
 </html>
