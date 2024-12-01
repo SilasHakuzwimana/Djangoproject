@@ -3,9 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WARS - User Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'EB Garamond', sans-serif;
+            font-size: 16px;
+        }
+        body {
+            font-family: 'EB Garamond', sans-serif;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+          }
+          body .header {
+            background-color: #f0f0f0;
+            width: 10em;
+            height: 10em;
+          }
+          body .header img{
+            padding: 10px 20px;
+            width: 20%;
+            height: 20%;
+          }
+          .overall-container{
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 16px 24px;
+            background-color: #fff;
+          }
+          .form-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+
+          .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #D9D9D9;
+            font-size: 36px;
+            width: auto;
+            height: auto 0;
+            border-radius: 5px;
+            color: #18BBB1;
+            gap: 2px;
+          }
+          .form-header i{
+            gap: 10px;
+            display: flex;
+          }
+          .form-header i img{
+            width: 3em;
+            height:3.5em;
+            position: absolute;
+          }
+          .form-section {
+            margin-bottom: 20px;
+          }
+          
+          .form-group {
+            margin-bottom: 15px;
+          }
+          
+          label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+          }
+          
+          input[type="text"],
+          input[type="email"],
+          input[type='file'],
+          input[type='tel'],
+          select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+          
+          .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+          }
+          .btn {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            }
+          .btn-primary {
+            background-color: #2CC9BF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          
+          .btn-secondary {
+            background-color: #0C21E4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+          .file {
+            display: flex;
+            align-items: center;
+            position: relative;
+          }
+
+          .file input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+          }
+
+          .file i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;  /* Prevents the icon from blocking file input clicks */
+          }
+
+          .file i img {
+            width: 2.5em;
+            height: 2.5em;
+            opacity: 0.7;  /* Slight transparency for subtlety */
+          }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <div>
+            <img src="images/wars_logo.png" alt="System logo">
+        </div>
+    </header>
+    <div class="overall-container">
+        <div class="form-container">
+        <h2 class="form-header"><i><img src="images/add-user-icon.png" alt="User register"></i> System User Registration</h2>
+        <form>
+          <div class="form-section">
+            <div class="form-group">
+              <label for="name">Names *</label>
+              <input type="text" id="name" placeholder="Enter your legal names" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" placeholder="Enter a valid email address" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nationalId">National ID/Passport No *</label>
+            <input type="text" name="nationalId" id="nationalId" placeholder="Enter valid ID No/Passport No" maxlength="16" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" name="phone" id="phone" placeholder="Enter your valid phone number" maxlength="15" required>
+          </div>
+          <div class="form-section">
+            <h3>Select Your Location</h3>
+            <div class="form-group">
+              <label for="country">Country *</label>
+              <select id="country" required>
+                <option value="">Select your country</option>
+              </select>
+            </div>
+            <div class="form-group">
+                <label for="province">Province *</label>
+                <select id="province" required>
+                    <option value="">Select Province</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="district">District *</label>
+                <select id="district" required>
+                    <option value="">Select District</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sector">Sector *</label>
+                <select id="sector" required>
+                    <option value="">Select Sector</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cell">Cell *</label>
+                <select name="cell" id="cell">
+                    <option value="">Select Cell</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="village">Village *</label>
+                <select name="village" id="village">
+                    <option value="">Select Village</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="profile">Upload your profile picture *</label>
+                <div class="file">
+                  <input type="file" id="profile" name="profile" placeholder="Upload your picture (10 MB)" required />
+                  <i><img src="images/upload-cloud-prof-pic.svg" alt="Upload profile picture"></i>
+                </div>
+              </div>
+          </div>
+
+          <div class="button-group">
+            <button type="button" class="btn btn-secondary" onclick="redirectToLogin();">Cancel</button>
+            <button type="submit" class="btn btn-primary" onclick="redirectToRegOtp();">Register User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+        function redirectToLogin(){
+            window.location.href = '/public/login.html'
+        }
+        function redirectToRegOtp(){
+            window.location.href = '/public/reg_otp_verification.html'
+        }
+    </script>
 </body>
 </html>

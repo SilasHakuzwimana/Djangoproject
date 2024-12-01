@@ -3,232 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WARS - Contact Us</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>WARS - Contact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        *{
+            font-family: 'EB Garamond', serif;
+        }
         body {
+            font-family: 'EB Garamond', serif;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        }
+        .overall-container{
             width: 100%;
-            text-align: center;
-            font-size: 16px;
-            font-family: 'Noto Sans', sans-serif; /* Added default font */
-        }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 20px;
-            width: 100%;
-        }
-        
-        .contact-form-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 4px 4px rgba(36, 16, 16, 0.1);
-            text-align: center;
-            padding: 20px; /* Added padding */
-        }
-        .contact-form-container header{
-            display: flex;
-            padding: 12px 20px;
-        }
-        .system-logo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .system-logo img {
-            width: 50%;
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .contact-form-container .head {
-            display: flex;
-            background-color: #d4d4d4;
-            margin: 0 10rem; /* Simplified margins */
-            gap: 20px;
-
-            text-align: center;
+            max-width: 600px;
+            padding: 10px 20px;
+            margin: 0;
             border-radius: 5px;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px; /* Added padding */
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+        }
+        .container {
+            width: 100%;
+            max-width: 550px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
         }
         
-        .contact-form-container .head i img {
-            display: inline-block;
-            padding-top: 20px;
-            height: 5rem;
-            width: 5rem;
+        .logo h1 {
+            font-family: 'EB Garamond', serif;
+            background-color: #D9D9D9;
+            margin: 0;
+            font-size: 36px;
         }
-        
-        .contact-form-container .head p {
-            font-family: 'EB Garamond', sans-serif;
-            padding-left: 0.2rem;
-            font-size: 50px;
-            font-weight: bold;
+        .header h2 {
+            display: flex;
+            font-size: 28px;
             color: #18BBB1;
-            margin: 0; /* Removed unnecessary padding */
-        }
-        
-        .contact-form {
-            width: 70%;
-            margin: 20px auto; /* Added spacing */
-        }
-        
-        .contact-form .form {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: justify;
+            align-items: center;
+            justify-content: center;
+            background-color: #D9D9D9;
+            padding: 10px 20px;
             border-radius: 5px;
-            background-color: #fff; /* Added background color */
+            gap: 10px;
+        }
+        .header h2 i img {
+            position: relative;
+            flex-direction: column;
+            display: flex;
+            width: 30px;
+            height: 30px;
+        }
+        .contact-form .form-group {
+            text-align: left;
+            margin-bottom: 15px;
         }
         
-        .contact-form label {
-            font-family: 'EB Garamond', sans-serif;
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
             display: block;
-            font-size: 16px;
-            font-weight: 800;
-            color: #333;
-            margin-bottom: 8px;
         }
         
-        .contact-form .form input[type="text"],
-        .contact-form .form input[type="email"],
-        .contact-form .form input[type="tel"],
-        .contact-form .form textarea {
+        input[type="text"], input[type="tel"], input[type="email"], textarea, input[type="file"] {
             font-family: 'EB Garamond', sans-serif;
             width: 100%;
-            padding: 12px;
-            font-size: 16px;
+            padding: 10px;
+            margin-top: 5px;
             border: 1px solid #ccc;
-            border-radius: 8px;
+            border-radius: 5px;
             box-sizing: border-box;
         }
         
-        .contact-form .form-group-upload {
+        .contact-file {
+            display: flex;
+            align-items: center;
+            position: relative;
+          }
+
+          .contact-file input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+          }
+          
+          .contact-file i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;  /* Prevents the icon from blocking file input clicks */
+          }
+
+          .contact-file i img {
+            width: 2.5em;
+            height: 2.5em;
+            opacity: 0.7;  /* Slight transparency for subtlety */
+          }
+        .button-group {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 4px rgba(36, 16, 16, 0.1);
-            font-family: 'EB Garamond', sans-serif;
-            width: 100%;
+            margin-top: 15px;
+            gap: 20px;
+        }
+        
+        .btn {
+            width: 48%;
             padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-sizing: border-box;
-        }
-        
-        .form-file-group .file {
-            font-family: 'EB Garamond', sans-serif;
-        }
-        
-        .form-file-group i img {
-            width: 2rem;
-            height: 2rem;
-            margin-right: 20px; /* Corrected padding */
-        }
-        
-        .contact-form .form-group-btn {
-            font-family: 'EB Garamond', sans-serif;
-            display: flex;
-            justify-content: center; /* Centered buttons */
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .contact-form .submit-btn,
-        .contact-form .form-group-btn .cancel {
-            font-family: 'EB Garamond', sans-serif;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
             border: none;
-            padding: 12px 20px;
             border-radius: 5px;
             cursor: pointer;
-            color: #FFFAFA;
-            font-weight: bold; /* Enhanced visibility */
+            text-align: center;
         }
         
-        .contact-form .submit-btn {
-            font-family: 'EB Garamond', sans-serif;
-            font-size: 16px;
+        .submit {
             background-color: #18BBB1;
         }
         
-        .contact-form .form-group-btn .cancel {
+        .home {
             background-color: #0C21E4;
-        }
-        
-        .contact-form .form-group-btn .cancel a {
-            color: #FFFAFA;
-            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <div class="system-logo">
-        <img src="wars_logo.png" alt="Wars logo">
+    <div class="logo">
+        <p><img src="images/wars_logo.png" alt="wars logo"></p>
     </div>
-    <div class="contact-form-container">
-    <header>
-        <div class="head">
-            <p><i><img src="images/upp-contact-mail--icon.png"  alt="add user"></i>System USer Contact</p>
+    <div class="overall-container">
+    <div class="container">
+        <div class="header">
+            <h2><i><img src="images/upp-contact-mail--icon.png" alt="contact"></i> System User Contact</h2>
         </div>
-    </header>
-        <div class="contact-form">
-            <form action="#" class="form">
-                <div class="form-group">
-                    <label for="names">Names</label>
-                    <br>
-                    <input type="text" name="names" id="names" placeholder="Enter your names" required>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="names">Names</label>
+                <input type="text" id="names" name="names" placeholder="Enter your names" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <div class="form-group file-upload">
+                <label for="file">File</label>
+                <div class="contact-file">
+                     <input type="file" id="file" name="file" class="file" accept=".png, .jpg, .pdf, .docx" required><i><img src="images/user-contact-upload-icon.png" alt="uploadFile"></i>
                 </div>
-                <br>
-                <div class="form-group">
-                    <label for="phone">Phone number</label>
-                    <br>
-                    <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <br>
-                    <input type="email" name="email" id="email" placeholder="Enter your email address" required>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <br>
-                    <textarea name="message" id="message" placeholder="Write your message here ......" required></textarea>
-                </div>
-                <br>
-                <div class="form-file-group">
-                    <label for="file">File</label>
-                    <br>
-                    <div class="form-group-upload">
-                        <input type="file" name="file" id="file" value="Upload any file (10 MB)" class="file">
-                        <i><img src="images/user-contact-upload-icon.png" alt=""></i>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="form-group-btn">
-                    <div class="cancel">
-                        <a href="index.html">Cancel</a>
-                    </div>
-                    <div>
-                        <button type="submit" name="submit" id="submit-btn" class="submit-btn">Submit</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        </div>
+            </div>
+            <div class="button-group">
+                <a href="index.html" class="btn home">Go to Home</a>
+                <br />
+                <button type="submit" class="btn submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>

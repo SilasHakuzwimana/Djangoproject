@@ -1,138 +1,118 @@
-/* General Styles */
-body {
-    font-family: 'Garamond', serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'EB Garamond', sans-serif;
+}
+body {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+}
+.overall-container{
+    width: 80%;
+    background-color: #fff;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+}
+.container {
+    width: 100%;
+    max-width: 700px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+.logo img {
+    max-width: 500px;
+}
+.header {
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+}
+.header h2 {
+    display: flex;
+    font-size: 28px;
+    color: #18BBB1;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Full viewport height */
+    background-color: #D9D9D9;
+    padding: 10px 20px;
+    border-radius: 5px;
+    gap: 10px;
 }
-
-/* Logo Styling */
-header {
-    text-align: center;
-    margin-bottom: 20px;
+.header h2 i img {
+    position: relative;
+    flex-direction: column;
+    display: flex;
+    width: 30px;
+    height: 30px;
 }
-
-.logo img {
-    width: 100%; /* Responsive width */
-    max-width: 200px; /* Limits maximum size */
-    padding: 10px;
+form{
+    margin-top: 20px;
 }
-
-/* Login Form Container */
-.login-form {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    width: 90%; /* Responsive width */
-    max-width: 400px; /* Prevents excessive stretching */
-    text-align: center;
-}
-
-/* Header within Form */
-.head h1 {
-    margin-bottom: 1rem;
-    font-size: 24px;
-    color: #333;
-}
-
-/* Form Elements */
-form {
+.form-group {
+    margin-bottom: 15px;
     text-align: left;
 }
-
-.label {
-    font-size: 16px;
-    color: #555;
+label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
-
-input[type="text"],
+input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    padding-right: 40px; /* Space for toggle icon */
-    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
-    position: relative;
 }
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
-/* Password Toggle Visibility Icon */
-.password-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-#togglePassword {
-    position: absolute;
-    right: 10px;
-    top: 35%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #007bff;
-    font-size: 18px;
-}
-
-/* Buttons */
-button.login {
-    background-color: #2CC9BF;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-button.login:hover {
-    background-color: #0056b3;
-}
-
-/* Cancel Link */
-.cancel a {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 12px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.cancel a:hover {
-    background-color: #0056b3;
-}
-
-/* Form Group Container */
-.form-group {
+.button-group {
     display: flex;
-    justify-content: space-between; /* Align cancel and login buttons */
-    align-items: center;
-    margin-top: 10px;
+    justify-content: space-between;
+    margin-top: 20px;
 }
-
-/* Adjustments for Small Screens */
-@media (max-width: 480px) {
-    .login-form {
-        padding: 1.5rem;
+.btn {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+.btn-cancel {
+    background-color: #0C21E4;
+}
+.btn-login {
+    background-color: #2CC9BF;
+}
+.links {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: justify;
+    padding-top: 20px;
+}
+.links a {
+    color: #2CC9BF;
+    text-decoration: none;
+}
+.links a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    .header h2 {
+        font-size: 24px;
     }
 }
