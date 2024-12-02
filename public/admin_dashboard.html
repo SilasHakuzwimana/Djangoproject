@@ -4,92 +4,268 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WARS - Admin System Dashboard</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..800&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            font-family: 'EB Garamond', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'EB Garamond', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180vh;
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #e6e6e6;
+        }
+        
+        .logo {
+            max-width: 100px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .title {
+            font-size: 1.8rem;
+            background-color: #d9d9d9;
+            color: #18BBB1;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .title img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: flex;
+        }
+
+        /* Menu */
+        .menu {
+            flex: 1;
+            background: #f4f4f9;
+            border-right: 2px solid #e6e6e6;
+            padding: 20px;
+        }
+        
+        .menu ul {
+            list-style: none;
+        }
+        
+        .menu li {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #0056b3;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .menu .icon {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .icon img{
+            width:50px;
+            height:50px;
+        }
+        /* Details Section */
+        .details {
+            flex: 3;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .detail-card {
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1 1 calc(50% - 20px);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .detail-card h2 {
+            font-size: 1.2rem;
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        
+        .detail-card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard {
+            flex-direction: column;
+            }
+        
+            .menu {
+            border-right: none;
+            border-bottom: 2px solid #e6e6e6;
+            text-align: center;
+            }
+        
+            .details {
+            gap: 10px;
+            }
+        
+            .detail-card {
+            flex: 1 1 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="dashboard-container">
-        <!-- Header Section -->
+    <div class="container">
+        <!-- Header -->
         <header class="header">
-            <div class="logo">
-                <img src="wars_logo.png" alt="WARS Logo">
-            </div>
-            <div class="">
-            <h1><i><img src="images/admin-images/admin-dashboard.png" alt="admin logo" width="40px" height="40px"></i> Admin System Dashboard</h1>
-        </div>
+          <img src="images/wars_logo.png" alt="Water System Logo" class="logo">
+          <h1 class="title"><span><img src="images/sedo-sec-images/sedo-sec_dashboard-icon.svg" alt="Dashboard icon"></span>Admin System Dashboard</h1>
         </header>
-
-        <!-- Main Section -->
-        <section class="main-content">
-            <aside class="sidebar">
-                <nav>
-                    <ul>
-                        <li><i class="fa fa-user"></i> Profile</li>
-                        <li><i class="fa fa-users"></i> Manage Users</li>
-                        <li><i class="fa fa-envelope"></i> User Messages</li>
-                        <li><i class="fa fa-reply"></i> Reply Users</li>
-                        <li><i class="fa fa-bell"></i> Notifications</li>
-                        <li><i class="fa fa-headphones"></i> Help Desk</li>
-                        <li><i class="fa fa-bar-chart"></i> Reports</li>
-                        <li><i class="fa fa-phone"></i> Contact SEDOs</li>
-                        <li><i class="fa fa-building"></i> Contact WASAC</li>
-                        <li><i class="fa fa-sign-out"></i> Logout</li>
-                    </ul>
-                </nav>
-            </aside>
-            <div class="content">
-                <div class="section-1">
-                <div class="action-description">
-                    <h2>Profile</h2>
-                    <p>View your profile settings.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Manage Users</h2>
-                    <p>Manage and view all users in the system.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Login Logs</h2>
-                    <p>Access all login attempts within the system.</p>
-                </div>
-                <div class="action-description">
-                    <h2>User Messages</h2>
-                    <p>View and resolve messages from users.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Reply Users</h2>
-                    <p>Respond to user inquiries.</p>
-                </div>
-                </div>
-                <div class="action-description">
-                    <h2>Notifications</h2>
-                    <p>Read all notifications.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Help Desk</h2>
-                    <p>Contact support from the help desk.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Reports</h2>
-                    <p>Generate reports regarding system actions.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Contact SEDOs</h2>
-                    <p>Message all SEDOs for incoming requests.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Contact WASAC</h2>
-                    <p>Contact WASAC for issue resolution.</p>
-                </div>
-                <div class="action-description">
-                    <h2>Logout</h2>
-                    <p>Leave the system securely.</p>
-                </div>
+    
+        <!-- Dashboard Content -->
+        <main class="dashboard">
+          <!-- Menu Items -->
+          <aside class="menu">
+            <ul>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin_profile-fill.png" alt="profile" width="50px" height="50px"></span> <!-- Profile Icon -->
+                Profile
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-manage_users.svg" alt="manage users"></span> <!-- manage users Icon -->
+                Manage users
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-login-logs.svg"></span> <!-- login logs Icon -->
+                Login logs
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-user-messages-icon.svg"></span> <!-- Cases Icon -->
+                User messages
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-reply-users.png"> </span> <!-- Reply users Icon -->
+                Reply users
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-notifications.svg"></span> <!-- Notifications Icon -->
+                Notifications
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-helpdesk-icon.svg"></span> <!-- Notifications Icon -->
+                Help desk
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-report-icon.svg"></span> <!-- Notifications Icon -->
+                Reports
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-contact-sedos-icon.png"></span> <!-- Notifications Icon -->
+                Contact SEDOs
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-contact-wasac.svg"></span> <!-- Notifications Icon -->
+                Contact WASAC
+              </li>
+              <li>
+                <span class="icon"><img src="images/admin-images/admin-logout.png" alt="profile" width="50px" height="50px"></span> <!-- Logout Icon -->
+                Logout
+              </li>
+            </ul>
+          </aside>
+    
+          <!-- Details Section -->
+          <section class="details">
+            <h3>Welcome to Admin Dashboard!</h3>
+            <br>
+            <br>
+            <p>Select an action below to get started:</p>
+            <div class="detail-card">
+              <h2>Profile</h2>
+              <p>View your profile settings.</p>
             </div>
-        </section>
-    </div>
-    <script src="#dashboard.js"></script>
+            <div class="detail-card">
+              <h2>Manage users</h2>
+              <p>View and manage all users within the system.</p>
+            </div>
+            <div class="detail-card">
+              <h2>Login logs</h2>
+              <p>Access  all login attempts from users.</p>
+            </div>
+            <div class="detail-card">
+              <h2>Messages</h2>
+              <p>View all users messages and  contact them.</p>
+            </div>
+            <div class="detail-card">
+              <h2>Reply users</h2>
+              <p>Reply to all users messages.</p>
+            </div>
+            <div class="detail-card">
+                <h2>Notifications</h2>
+                <p>Read all notifications.</p>
+            </div>
+            <div class="detail-card">
+                <h2>Help desk</h2>
+                <p>Contact support from dev now.</p>
+            </div>
+            <div class="detail-card">
+                <h2>Reports</h2>
+                <p>Generate reports regarding system actions.</p>
+            </div>
+            <div class="detail-card">
+              <h2>Contact SEDOs</h2>
+              <p>Message all SEDOs for any incoming request.</p>
+            </div>
+            <div class="detail-card">
+              <h2>Contact WASAC</h2>
+              <p>Contact WASAC for issue arises.</p>
+            </div>
+            <div class="detail-card">
+              <h2>Logout</h2>
+              <p>Leave the system securely.</p>
+            </div>
+          </section>
+        </main>
+      </div>
 </body>
 </html>
