@@ -104,6 +104,9 @@
             cursor: pointer;
             color: white;
             }
+            .btn span{
+                gap:20px;
+            }
           .btn-primary {
             background-color: #2CC9BF;
             color: white;
@@ -148,6 +151,66 @@
             height: 2.5em;
             opacity: 0.7;  /* Slight transparency for subtlety */
           }
+          @media (max-width: 768px) {
+            body {
+              font-size: 14px;
+              flex-direction: column;
+            }
+          
+            .overall-container {
+              width: 90%;
+              padding: 12px 18px;
+            }
+          }
+          /* For tablets and smaller devices (less than 768px) */
+        @media (max-width: 768px) {
+            body {
+            font-size: 14px; /* Reduce base font size */
+            }
+
+            .overall-container {
+            width: 90%; /* Make container take up more relative width */
+            padding: 12px 18px; /* Reduce padding for smaller screens */
+            }
+
+            .form-header {
+            font-size: 24px; /* Reduce header font size */
+            }
+
+            .form-group {
+            margin-bottom: 10px; /* Reduce spacing between form elements */
+            }
+
+            .btn {
+            padding: 8px 12px; /* Reduce button padding */
+            }
+        }
+        
+        /* For smaller phones (less than 480px) */
+        @media (max-width: 480px) {
+            body {
+            font-size: 12px; /* Further reduce font size */
+            }
+
+            .overall-container {
+            width: 100%; /* Container takes full width */
+            padding: 10px; /* Minimal padding */
+            }
+
+            .form-header {
+            font-size: 18px; /* Smaller header font size */
+            }
+
+            .button-group {
+            flex-direction: column; /* Stack buttons vertically */
+            align-items: center;
+            }
+
+            .btn {
+            width: 100%; /* Buttons take full width */
+            margin-bottom: 10px; /* Add spacing between stacked buttons */
+            }
+        }
     </style>
 </head>
 <body>
@@ -226,8 +289,8 @@
           </div>
 
           <div class="button-group">
-            <button type="button" class="btn btn-secondary" onclick="redirectToLogin();">Cancel</button>
-            <button type="submit" class="btn btn-primary" onclick="redirectToRegOtp();">Register User</button>
+            <button type="button" class="btn btn-secondary" onclick="redirectToLogin();">Cancel <span> <img src="images/regist-user-cancel-icon.svg"></span></button>
+            <button type="submit" class="btn btn-primary" onclick="redirectToRegOtp();">Register User <span> <img src="images/regist-user-plus.svg"></span> </button>
           </div>
         </form>
       </div>
