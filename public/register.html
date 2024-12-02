@@ -90,7 +90,10 @@
             border: 1px solid #ccc;
             border-radius: 5px;
           }
-          
+          input:focus{
+            outline: none;
+            border-color: #18BBB1;
+         }
           .button-group {
             display: flex;
             justify-content: space-between;
@@ -216,12 +219,12 @@
 <body>
     <header>
         <div>
-            <img src="images/wars_logo.png" alt="System logo">
+            <img src="images/front-images/wars_logo.png" alt="System logo">
         </div>
     </header>
     <div class="overall-container">
         <div class="form-container">
-        <h2 class="form-header"><i><img src="images/add-user-icon.png" alt="User register"></i> System User Registration</h2>
+        <h2 class="form-header"><i><img src="images/front-images/add-user-icon.png" alt="User register"></i> System User Registration</h2>
         <form>
           <div class="form-section">
             <div class="form-group">
@@ -283,14 +286,14 @@
                 <label for="profile">Upload your profile picture *</label>
                 <div class="file">
                   <input type="file" id="profile" name="profile" placeholder="Upload your picture (10 MB)" required />
-                  <i><img src="images/upload-cloud-prof-pic.svg" alt="Upload profile picture"></i>
+                  <i><img src="images/front-images/upload-cloud-prof-pic.svg" alt="Upload profile picture"></i>
                 </div>
               </div>
           </div>
 
           <div class="button-group">
-            <button type="button" class="btn btn-secondary" onclick="redirectToLogin();">Cancel <span> <img src="images/regist-user-cancel-icon.svg"></span></button>
-            <button type="submit" class="btn btn-primary" onclick="redirectToRegOtp();">Register User <span> <img src="images/regist-user-plus.svg"></span> </button>
+            <button type="button" class="btn btn-secondary" onclick="redirectToLogin();">Cancel <span> <img src="images/front-images/regist-user-cancel-icon.svg"></span></button>
+            <button type="submit" class="btn btn-primary" onclick="redirectToRegOtp();">Register User <span> <img src="images/front-images/regist-user-plus.svg"></span> </button>
           </div>
         </form>
       </div>

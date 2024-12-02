@@ -82,7 +82,10 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-        
+        input:focus,textarea:focus{
+            outline: none;
+            border-color: #18BBB1;
+        }
         .contact-file {
             display: flex;
             align-items: center;
@@ -140,34 +143,34 @@
 </head>
 <body>
     <div class="logo">
-        <p><img src="images/wars_logo.png" alt="wars logo"></p>
+        <p><img src="images/front-images/wars_logo.png" alt="wars logo"></p>
     </div>
     <div class="overall-container">
     <div class="container">
         <div class="header">
-            <h2><i><img src="images/upp-contact-mail--icon.png" alt="contact"></i> System User Contact</h2>
+            <h2><i><img src="images/front-images/upp-contact-mail--icon.png" alt="contact"></i> System User Contact</h2>
         </div>
         <form class="contact-form">
             <div class="form-group">
-                <label for="names">Names</label>
+                <label for="names">Names *</label>
                 <input type="text" id="names" name="names" placeholder="Enter your names" required>
             </div>
             <div class="form-group">
-                <label for="phone">Phone number</label>
+                <label for="phone">Phone number *</label>
                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email">Email *</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email address" required>
             </div>
             <div class="form-group">
-                <label for="message">Message</label>
+                <label for="message">Message *</label>
                 <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
             </div>
             <div class="form-group file-upload">
                 <label for="file">File</label>
                 <div class="contact-file">
-                     <input type="file" id="file" name="file" class="file" accept=".png, .jpg, .pdf, .docx" required><i><img src="images/user-contact-upload-icon.png" alt="uploadFile"></i>
+                     <input type="file" id="file" name="file" class="file" accept=".png, .jpg, .pdf, .docx" required><i><img src="images/front-images/user-contact-upload-icon.png" alt="uploadFile"></i>
                 </div>
             </div>
             <div class="button-group">

@@ -75,7 +75,7 @@
         }
         .otp-input:focus{
             outline: none;
-            border-color: #19a2dc;
+            border-color: #18BBB1;
         }
         .button-group {
             display: flex;
@@ -122,11 +122,11 @@
 </head>
 <body>
     <header class="header">
-        <img src="images/wars_logo.png" alt="Water System Logo" class="logo">
+        <img src="images/front-images/wars_logo.png" alt="Water System Logo" class="logo">
     </header>
     <div class="container">
         <h1 class="title">
-            <img src="images/upp-otp-verification-icon.svg" alt="OTP Icon"> Registration OTP Verification
+            <img src="images/front-images/upp-otp-verification-icon.svg" alt="OTP Icon"> Registration OTP Verification
         </h1>
         <br />
         <br />
@@ -134,7 +134,7 @@
         <form class="otp-form">
             <input type="text" maxlength="6" placeholder="Enter OTP to verify registered email" class="otp-input" aria-label="OTP" required>
             <div class="button-group">
-                <button type="button" class="cancel-btn" onclick="redirectToRegister();">Cancel <i><img src="images/" alt=""></i> </button>
+                <button type="button" class="cancel-btn" onclick="redirectToRegister();">Cancel</button>
                 <button type="submit" class="verify-btn">Verify OTP</button>
             </div>
         </form>
